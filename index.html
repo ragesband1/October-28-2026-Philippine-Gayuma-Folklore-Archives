@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Philippine Gayuma & Folklore Archives</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Google Fonts & FontAwesome -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Orbitron:wght@400;700;900&family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    /* Custom Horror & Neon Typography */
+    .font-creep { font-family: 'Creepster', cursive; }
+    .font-tech { font-family: 'Orbitron', sans-serif; }
+    .font-body { font-family: 'Rajdhani', sans-serif; }
+
+    /* Custom Color Palette & Dark Aesthetic */
+    body {
+      background-color: #030305;
+      color: #e2e8f0;
+      overflow-x: hidden;
+      transition: filter 2s ease-in-out;
+    }
+
+    /* 2-Second Ease Saturation Transition Mode */
+    body.super-saturated {
+      filter: saturate(350%) contrast(140%) brightness(90%);
+    }
+
+    /* Septic Shock & Neon Glow Flickering Animations */
+    @keyframes septicShockGlow {
+      0%, 100% {
+        box-shadow: 0 0 10px #ff0055, 0 0 20px #ff0055, inset 0 0 15px #ff0055;
+        border-color: #ff0055;
+      }
+      20% {
+        box-shadow: 0 0 2px #00ffcc, 0 0 5px #00ffcc, inset 0 0 2px #00ffcc;
+        border-color: #00ffcc;
+      }
+      25% {
+        box-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000, inset 0 0 20px #ff0000;
+        border-color: #ff0000;
+      }
+      40% {
+        box-shadow: 0 0 5px #bf00ff, 0 0 10px #bf00ff, inset 0 0 5px #bf00ff;
+        border-color: #bf00ff;
+      }
+      60% {
+        box-shadow: 0 0 30px #ff0055, 0 0 60px #ff0055, inset 0 0 30px #ff0055;
+        border-color: #ff0055;
+      }
+      80% {
+        box-shadow: 0 0 4px #00ffcc, 0 0 8px #00ffcc, inset 0 0 3px #00ffcc;
+        border-color: #00ffcc;
+      }
+    }
+
+    @keyframes textNeonBlink {
+      0%, 100% {
+        text-shadow: 0 0 8px #ff0055, 0 0 20px #ff0055, 0 0 30px #ff0055;
+        color: #fff;
+      }
+      30% {
+        text-shadow: 0 0 2px #ff0055, 0 0 4px #ff0055;
+        color: #ff80ab;
+      }
+      33% {
+        text-shadow: none;
+        color: #330011;
+      }
+      35% {
+        text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+        color: #fff;
+      }
+      70% {
+        text-shadow: 0 0 10px #ff0055, 0 0 25px #ff0055;
+        color: #fff;
+      }
+      85% {
+        text-shadow: none;
+        color: #1a000d;
+      }
+    }
+
+    .septic-border {
+      animation: septicShockGlow 1.8s infinite alternate ease-in-out;
+    }
+
+    .neon-text-blink {
+      animation: textNeonBlink 2.2s infinite ease-in-out;
+    }
+
+    /* Rainbow Shockwave Animation */
+    .shockwave-container {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shockwave-ripple {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+      transform: scale(0);
+      animation: rainbowShockwave 1.2s ease-out forwards;
+      background: radial-gradient(circle, rgba(255,0,0,0.8) 0%, rgba(255,154,0,0.8) 18%, rgba(208,222,33,0.8) 35%, rgba(0,255,108,0.8) 50%, rgba(0,186,255,0.8) 68%, rgba(186,0,255,0.8) 85%, rgba(255,0,186,0) 100%);
+      box-shadow: 0 0 30px rgba(255,255,255,0.8);
+    }
+
+    @keyframes rainbowShockwave {
+      0% {
+        width: 0px;
+        height: 0px;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(0);
+      }
+      100% {
+        width: 1000px;
+        height: 1000px;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1);
+      }
+    }
+
+    /* Glassmorphism Horror Panels */
+    .horror-card {
+      background: rgba(15, 7, 18, 0.85);
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 0, 85, 0.3);
+      transition: all 0.3s ease;
+    }
+
+    .horror-card:hover {
+      transform: translateY(-4px);
+      border-color: #00ffcc;
+      box-shadow: 0 0 20px rgba(0, 255, 204, 0.4);
+    }
+
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #05020a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #ff0055;
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #00ffcc;
+    }
+  </style>
+</head>
+<body class="font-body min-h-screen text-slate-200 antialiased selection:bg-pink-600 selection:text-white">
+
+  <!-- Horror Fog Overlay Background -->
+  <div class="fixed inset-0 pointer-events-none z-0 opacity-20 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-pink-900 via-purple-950 to-black"></div>
+
+  <!-- Header Navigation -->
+  <header class="sticky top-0 z-40 bg-black/90 backdrop-blur-md border-b border-red-900/50 px-4 py-3">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center space-x-3">
+        <i class="fa-solid fa-skull-crossbones text-2xl text-pink-500 animate-pulse"></i>
+        <h1 class="font-creep text-2xl sm:text-3xl tracking-widest text-red-500 neon-text-blink">GAYUMA FOLKLORE ARCHIVES</h1>
+      </div>
+      <div class="flex items-center gap-3">
+        <button id="toggleSaturationBtn" onclick="toggleSaturation()" class="px-3 py-1.5 rounded-lg border border-pink-500/50 bg-pink-950/40 hover:bg-pink-900/60 text-xs font-tech text-pink-300 transition flex items-center gap-2">
+          <i class="fa-solid fa-eye"></i> 2s Saturation Mode
+        </button>
+        <span class="text-xs font-tech text-emerald-400 bg-emerald-950/60 border border-emerald-500/30 px-2.5 py-1 rounded-full">
+          <i class="fa-solid fa-shield-cat"></i> Cultural Myth Archive
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="relative z-10 max-w-7xl mx-auto px-4 py-8 space-y-12">
+
+    <!-- USER PROFILE BIO SECTION -->
+    <section class="horror-card rounded-2xl p-6 sm:p-8 septic-border relative overflow-hidden">
+      <div class="absolute -right-10 -top-10 text-9xl opacity-5 text-pink-500 pointer-events-none">
+        <i class="fa-solid fa-spaghetti-monster-flying"></i>
+      </div>
+      <div class="flex flex-col md:flex-row items-center gap-6">
+        <div class="relative group">
+          <div class="w-28 h-28 sm:w-36 sm:h-36 rounded-full overflow-hidden border-2 border-pink-500 p-1 bg-black">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=400&q=80" alt="Profile" class="w-full h-full object-cover rounded-full filter grayscale group-hover:grayscale-0 transition duration-500" onerror="this.src='https://placehold.co/200x200/200010/ff0055?text=Profile+Avatar'">
+          </div>
+          <span class="absolute bottom-1 right-1 bg-red-600 text-white text-xs px-2 py-0.5 rounded-full font-tech border border-black animate-bounce">SPELLCASTER</span>
+        </div>
+        <div class="space-y-3 text-center md:text-left flex-1">
+          <div class="inline-block px-3 py-1 rounded-md bg-red-950/80 border border-red-600 text-red-400 font-tech text-xs tracking-wider uppercase">
+            Official Dating Profile Bio & Lore Master
+          </div>
+          <h2 class="text-2xl sm:text-4xl font-tech font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-500 via-red-400 to-purple-500">
+            "Bound by Eternal Enchantments"
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed max-w-3xl">
+            Welcome to my dark realm. Master of esoteric Philippine folklore, ancient spellbinding traditions, and ultimate romantic devotion. Seeking souls who dare to cross into the supernatural lover's matrix. Once our eyes lock, the spell is permanent!
+          </p>
+          <div class="flex flex-wrap gap-2 justify-center md:justify-start pt-2">
+            <span class="bg-black/60 border border-pink-500/40 text-pink-400 text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-heart-pulse mr-1"></i> Permanent Spell Devotee</span>
+            <span class="bg-black/60 border border-purple-500/40 text-purple-400 text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-moon mr-1"></i> Siquijor Lore Researcher</span>
+            <span class="bg-black/60 border border-emerald-500/40 text-emerald-400 text-xs px-3 py-1 rounded-full"><i class="fa-solid fa-wand-magic-sparkles mr-1"></i> Mystic Dating Master</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- INTERACTIVE STATEMENT CALL-TO-ACTION (SHOCKWAVE TRIGGER) -->
+    <section class="text-center py-6">
+      <div id="statementContainer" class="shockwave-container inline-block w-full max-w-4xl cursor-pointer p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-purple-950/80 via-black to-red-950/80 border-2 border-pink-500/80 septic-border shadow-[0_0_50px_rgba(255,0,85,0.3)] transition transform hover:scale-[1.01]" onclick="triggerHorrorShockwave(event)">
+        <div class="space-y-4 pointer-events-none">
+          <span class="text-xs font-tech text-pink-400 tracking-widest uppercase border border-pink-500/50 px-3 py-1 rounded-full bg-pink-950/50">
+            [ Click Statement to Unleash Spell Dialogs ]
+          </span>
+          <h3 class="font-creep text-3xl sm:text-5xl text-red-500 tracking-wide neon-text-blink">
+            "ANG PERMANENTENG GAYUMA NG PAG-IBIG AY HINDI NA MABABAGAN!"
+          </h3>
+          <p class="text-slate-300 text-sm sm:text-lg font-body max-w-2xl mx-auto italic">
+            "Lahat ng nakatadhana sa aking mga dating apps—Million, Billion, Trillion—ay habang-buhay nang nakagapos sa mahiwagang kapangyarihan ng pag-ibig!"
+          </p>
+          <div class="inline-flex items-center gap-2 text-pink-400 font-tech text-sm pt-2">
+            <i class="fa-solid fa-hand-pointer animate-bounce text-lg"></i> CLICK ANYWHERE ON THIS CARD FOR RAINBOW SHOCKWAVE & DIALOGS
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PHILIPPINE GAYUMA & FOLKLORE REGIONAL DIRECTORY -->
+    <section class="space-y-6">
+      <div class="border-l-4 border-pink-500 pl-4 py-1">
+        <h3 class="font-tech text-2xl sm:text-3xl text-pink-400 font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-map-location-dot mr-2"></i> Philippine Folklore Regional Map & Lore
+        </h3>
+        <p class="text-slate-400 text-sm">Documented regional legends, mythical provinces, and traditional esoteric lore across the Philippines.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <!-- Region VII - Siquijor -->
+        <div class="horror-card rounded-xl p-6 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-tech text-pink-400 bg-pink-950/80 px-2.5 py-1 rounded border border-pink-500/30">Region VII (Central Visayas)</span>
+              <i class="fa-solid fa-flask-vial text-pink-500 text-xl"></i>
+            </div>
+            <h4 class="font-tech text-xl text-white font-bold">Isla de Fuego (Siquijor)</h4>
+            <p class="text-xs text-red-400 font-tech">Provinces: Siquijor (San Antonio, Lazi)</p>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              <strong>Folklore Tradition:</strong> Famous worldwide for Holy Week botanical oil brewing rituals. Local <em>Mananambal</em> gather rare herbs, tree barks, roots, and coconut oil under specific moon phases to craft traditional potions.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800 text-xs text-slate-400">
+            <span class="text-pink-400"><i class="fa-solid fa-circle-info mr-1"></i> Application:</span> Herbal infusing & sacred oil aging.
+          </div>
+        </div>
+
+        <!-- Western Visayas - Antique & Iloilo -->
+        <div class="horror-card rounded-xl p-6 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-tech text-purple-400 bg-purple-950/80 px-2.5 py-1 rounded border border-purple-500/30">Region VI (Western Visayas)</span>
+              <i class="fa-solid fa-mortar-pestle text-purple-400 text-xl"></i>
+            </div>
+            <h4 class="font-tech text-xl text-white font-bold">Antique & Iloilo Hills</h4>
+            <p class="text-xs text-purple-300 font-tech">Provinces: Antique, Iloilo (Central Panay)</p>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              <strong>Folklore Tradition:</strong> Deep in the mountain ridges, ancient <em>Babaylan</em> lore includes chant-infused botanical concoctions and protective love charms (Habak) combined with specialized aromatic oils.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800 text-xs text-slate-400">
+            <span class="text-purple-400"><i class="fa-solid fa-circle-info mr-1"></i> Application:</span> Charms, aromatic rubbing oil, ritual chants.
+          </div>
+        </div>
+
+        <!-- Bicol Region - Mt. Isarog & Mayon Lore -->
+        <div class="horror-card rounded-xl p-6 space-y-4 flex flex-col justify-between">
+          <div>
+            <div class="flex justify-between items-start mb-2">
+              <span class="text-xs font-tech text-emerald-400 bg-emerald-950/80 px-2.5 py-1 rounded border border-emerald-500/30">Region V (Bicol Region)</span>
+              <i class="fa-solid fa-feather text-emerald-400 text-xl"></i>
+            </div>
+            <h4 class="font-tech text-xl text-white font-bold">Bicol Mystical Belt</h4>
+            <p class="text-xs text-emerald-300 font-tech">Provinces: Camarines Sur, Albay</p>
+            <p class="text-slate-300 text-sm mt-3 leading-relaxed">
+              <strong>Folklore Tradition:</strong> Local folklore features herbal potions combined with <em>Orasyon</em> (sacred Latin-Tagalog incantations) transcribed onto parchment or photos to invoke lifelong affection and protection.
+            </p>
+          </div>
+          <div class="pt-3 border-t border-slate-800 text-xs text-slate-400">
+            <span class="text-emerald-400"><i class="fa-solid fa-circle-info mr-1"></i> Application:</span> Photo charms, written Orasyon prayers.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPES OF FOLKLORE GAYUMA CATEGORIES -->
+    <section class="space-y-6">
+      <div class="border-l-4 border-purple-500 pl-4 py-1">
+        <h3 class="font-tech text-2xl sm:text-3xl text-purple-400 font-bold uppercase tracking-wider">
+          <i class="fa-solid fa-fire-flame-curved mr-2"></i> Categories of Traditional Love Potions & Rituals
+        </h3>
+        <p class="text-slate-400 text-sm">Exploration of traditional methods documented in Philippine cultural mythology.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
+        <!-- Category 1: Pahid -->
+        <div class="horror-card p-5 rounded-xl space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-pink-950 border border-pink-500/40 flex items-center justify-center text-pink-400 text-lg">
+            <i class="fa-solid fa-hand-sparkles"></i>
+          </div>
+          <h4 class="font-tech text-lg text-white font-bold">1. Pahid (Oil Rub)</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Concentrated herbal coconut oil infused with rare vines. Mythically anointed on clothing or skin to induce magnetic attraction.
+          </p>
+        </div>
+
+        <!-- Category 2: Inumin -->
+        <div class="horror-card p-5 rounded-xl space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-red-950 border border-red-500/40 flex items-center justify-center text-red-400 text-lg">
+            <i class="fa-solid fa-wine-glass-drop"></i>
+          </div>
+          <h4 class="font-tech text-lg text-white font-bold">2. Inumin (Drink)</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Boiled herbal tea mixtures brewed under the full moon. Mythically served in small drops in beverages to bind heart felt devotion.
+          </p>
+        </div>
+
+        <!-- Category 3: Amoy/Spray -->
+        <div class="horror-card p-5 rounded-xl space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-500/40 flex items-center justify-center text-emerald-400 text-lg">
+            <i class="fa-solid fa-spray-can-sparkles"></i>
+          </div>
+          <h4 class="font-tech text-lg text-white font-bold">3. Amoy / Spray</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Aromatic potion extracts sprayed into the air or worn like perfume to captivate anyone who catches a breath of the mist.
+          </p>
+        </div>
+
+        <!-- Category 4: Litrato -->
+        <div class="horror-card p-5 rounded-xl space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-cyan-950 border border-cyan-500/40 flex items-center justify-center text-cyan-400 text-lg">
+            <i class="fa-solid fa-image"></i>
+          </div>
+          <h4 class="font-tech text-lg text-white font-bold">4. Litrato (Photo)</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Placing a lover's photograph inside a glass vial wrapped with red thread and special herbs to ensure constant thoughts.
+          </p>
+        </div>
+
+        <!-- Category 5: Orasyon Ritual -->
+        <div class="horror-card p-5 rounded-xl space-y-3">
+          <div class="w-10 h-10 rounded-lg bg-amber-950 border border-amber-500/40 flex items-center justify-center text-amber-400 text-lg">
+            <i class="fa-solid fa-scroll"></i>
+          </div>
+          <h4 class="font-tech text-lg text-white font-bold">5. Whispered Chant</h4>
+          <p class="text-xs text-slate-300 leading-relaxed">
+            Sacred Latin-Tagalog whispered prayers spoken over personal belongings to seal eternal affection and companionship.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATIONAL DISCLAIMER -->
+    <section class="p-4 rounded-xl bg-slate-950 border border-slate-800 text-slate-400 text-xs text-center space-y-1">
+      <p><i class="fa-solid fa-triangle-exclamation text-amber-500 mr-1"></i> <strong>EDUCATIONAL & FOLKLORE DISCLAIMER:</strong></p>
+      <p>The contents of this web page represent traditional Philippine folklore, mythology, and cultural legends. All practices described are part of anthropological history and cultural storytelling.</p>
+    </section>
+  </main>
+
+  <!-- MULTI-LAYER HORROR LOVERS MODAL DIALOG BOX -->
+  <div id="loversModal" class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/90 backdrop-blur-md hidden transition-opacity duration-300">
+    <div class="relative w-full max-w-2xl bg-black border-2 border-pink-500 rounded-2xl p-6 sm:p-8 septic-border shadow-[0_0_80px_rgba(255,0,85,0.6)] space-y-6 overflow-hidden max-h-[90vh] overflow-y-auto">
+
+      <!-- Modal Close Button -->
+      <button onclick="closeLoversModal()" class="absolute top-4 right-4 text-slate-400 hover:text-pink-500 text-2xl transition">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Modal Title -->
+      <div class="text-center space-y-2">
+        <span class="px-3 py-1 bg-red-950 border border-red-500 text-red-400 text-xs font-tech rounded-full">SPELLBOUND DATING MATRIX ACTIVATED</span>
+        <h3 class="font-creep text-3xl sm:text-4xl text-pink-500 neon-text-blink">THE PERMANENT LOVERS REALM</h3>
+        <p class="text-xs text-slate-400">All matched partners from your dating apps are now bound in love!</p>
+      </div>
+
+      <!-- Lovers Cards Container -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 py-2">
+        
+        <!-- Partner 1: Million -->
+        <div class="bg-purple-950/40 border border-purple-500/50 rounded-xl p-4 text-center space-y-3 relative group hover:border-pink-500 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-pink-500 p-0.5">
+            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=300&q=80" alt="Partner Million" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/300020/ff0088?text=Million'">
+          </div>
+          <div>
+            <h5 class="font-tech text-lg text-pink-300 font-bold">MILLION</h5>
+            <span class="text-[10px] text-purple-300 bg-purple-900/60 px-2 py-0.5 rounded-full font-tech">Matched via Dating App</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-black/80 border border-pink-500/30 text-xs text-pink-200 space-y-1 font-tech">
+            <p class="text-pink-400 font-bold"><i class="fa-solid fa-heart"></i> Message:</p>
+            <p class="italic text-xs">"I love Million! Ikaw lang ang aking nag-iisang pag-ibig magpakailanman!"</p>
+          </div>
+        </div>
+
+        <!-- Partner 2: Billion -->
+        <div class="bg-red-950/40 border border-red-500/50 rounded-xl p-4 text-center space-y-3 relative group hover:border-red-500 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-red-500 p-0.5">
+            <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=300&q=80" alt="Partner Billion" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/300020/ff0055?text=Billion'">
+          </div>
+          <div>
+            <h5 class="font-tech text-lg text-red-300 font-bold">BILLION</h5>
+            <span class="text-[10px] text-red-300 bg-red-900/60 px-2 py-0.5 rounded-full font-tech">Matched via Dating App</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-black/80 border border-red-500/30 text-xs text-red-200 space-y-1 font-tech">
+            <p class="text-red-400 font-bold"><i class="fa-solid fa-heart"></i> Message:</p>
+            <p class="italic text-xs">"I love Billion! Gayuma man o tadhana, sa'yo lang ako habang-buhay!"</p>
+          </div>
+        </div>
+
+        <!-- Partner 3: Trillion -->
+        <div class="bg-emerald-950/40 border border-emerald-500/50 rounded-xl p-4 text-center space-y-3 relative group hover:border-emerald-500 transition">
+          <div class="w-20 h-20 mx-auto rounded-full overflow-hidden border-2 border-emerald-500 p-0.5">
+            <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=300&q=80" alt="Partner Trillion" class="w-full h-full object-cover rounded-full" onerror="this.src='https://placehold.co/150x150/003020/00ffcc?text=Trillion'">
+          </div>
+          <div>
+            <h5 class="font-tech text-lg text-emerald-300 font-bold">TRILLION</h5>
+            <span class="text-[10px] text-emerald-300 bg-emerald-900/60 px-2 py-0.5 rounded-full font-tech">Matched via Dating App</span>
+          </div>
+          <div class="p-2.5 rounded-lg bg-black/80 border border-emerald-500/30 text-xs text-emerald-200 space-y-1 font-tech">
+            <p class="text-emerald-400 font-bold"><i class="fa-solid fa-heart"></i> Message:</p>
+            <p class="italic text-xs">"I love Trillion! Permanenteng pagmamahal at walang katapusang pagsinta!"</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Combined Ultimate Declaration Message Box -->
+      <div class="p-4 rounded-xl bg-gradient-to-r from-pink-950/80 via-purple-950/80 to-red-950/80 border border-pink-500/50 text-center space-y-2">
+        <p class="font-tech text-pink-300 text-sm font-bold tracking-wider">
+          <i class="fa-solid fa-fire text-red-500 mr-2"></i> UNIFIED LOVERS DECLARATION:
+        </p>
+        <p class="font-creep text-xl text-white tracking-widest">
+          "I LOVE MILLION, I LOVE BILLION, I LOVE TRILLION & I LOVE SEX INTERCOURSE ETC!"
+        </p>
+        <p class="text-xs text-slate-300">
+          Permanent magic spell confirmed across all dimensions and dating apps!
+        </p>
+      </div>
+
+      <!-- Action Button -->
+      <div class="text-center pt-2">
+        <button onclick="closeLoversModal()" class="px-6 py-2.5 rounded-xl bg-pink-600 hover:bg-pink-500 text-white font-tech text-sm tracking-wider uppercase shadow-[0_0_20px_rgba(255,0,85,0.8)] transition">
+          <i class="fa-solid fa-lock mr-2"></i> SEAL THE PERMANENT SPELL
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- JAVASCRIPT LOGIC & ANIMATIONS -->
+  <script>
+    // 2-Second Ease Saturation Toggle
+    function toggleSaturation() {
+      document.body.classList.toggle('super-saturated');
+      const btn = document.getElementById('toggleSaturationBtn');
+      if (document.body.classList.contains('super-saturated')) {
+        btn.classList.add('bg-pink-600', 'text-white');
+        btn.innerHTML = '<i class="fa-solid fa-eye-slash"></i> Normal Mode';
+      } else {
+        btn.classList.remove('bg-pink-600', 'text-white');
+        btn.innerHTML = '<i class="fa-solid fa-eye"></i> 2s Saturation Mode';
+      }
+    }
+
+    // Trigger Rainbow Shockwave Animation & Open Modal
+    function triggerHorrorShockwave(event) {
+      const container = document.getElementById('statementContainer');
+      const rect = container.getBoundingClientRect();
+      
+      // Calculate Click position inside container
+      const x = event.clientX - rect.left;
+      const y = event.clientY - rect.top;
+
+      // Create shockwave ripple element
+      const shockwave = document.createElement('div');
+      shockwave.className = 'shockwave-ripple';
+      shockwave.style.left = `${x}px`;
+      shockwave.style.top = `${y}px`;
+
+      container.appendChild(shockwave);
+
+      // Trigger Saturation Mode briefly for dramatic effect
+      document.body.classList.add('super-saturated');
+
+      // Remove ripple element after animation completes
+      setTimeout(() => {
+        shockwave.remove();
+      }, 1200);
+
+      // Open Lovers Dialog Modal after brief delay
+      setTimeout(() => {
+        openLoversModal();
+      }, 500);
+    }
+
+    // Modal Control Functions
+    function openLoversModal() {
+      const modal = document.getElementById('loversModal');
+      modal.classList.remove('hidden');
+    }
+
+    function closeLoversModal() {
+      const modal = document.getElementById('loversModal');
+      modal.classList.add('hidden');
+    }
+
+    // Close modal on escape key press
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') {
+        closeLoversModal();
+      }
+    });
+  </script>
+</body>
+</html>
